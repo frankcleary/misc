@@ -20,7 +20,7 @@ def randprod(n):
     return Y
 
 if __name__ == "__main__":
-    test_n = [300]*4
+    test_n = [400]*4
     start_time = time.time()
     randlist = [randprod(n) for n in test_n]
     elapsed = (time.time() - start_time)
@@ -29,8 +29,8 @@ if __name__ == "__main__":
     time.sleep(10) # provide a break in windows CPU usage graph    
     
     par_start_time = time.time()
-    ncpus = 2
-    job_server = pp.Server(ncpus)
+    n_cpus = 4
+    job_server = pp.Server(n_cpus)
     jobs = [job_server.submit(randprod, (n,), (), ("random",)) for n in test_n]
     sums = [job() for job in jobs]
     par_elapsed = (time.time() - par_start_time)
