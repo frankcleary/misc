@@ -29,11 +29,11 @@ if __name__ == "__main__":
     start_time = time.time()
     series_sums = [randprod(n) for n in test_n]
     elapsed = (time.time() - start_time)
-    print "Time for standard processing: %.1f" % elapsed + " s"
+    print "Time for serial processing: %.1f" % elapsed + " s"
 
     time.sleep(10) # provide a break in windows CPU usage graph    
     
-    # Do the same 4 calculations in parallel
+    # Do the same 4 calculations in parallel, using parallel python
     par_start_time = time.time()
     n_cpus = 4
     job_server = pp.Server(n_cpus)
