@@ -16,7 +16,7 @@ def randprod(n):
     Y = [[0]*n]*n
     for i in range(n):
         for j in range(n):
-            Y[i][j] = sum([X[k][i]*X[j][k] for k in range(n)])
+            Y[i][j] = sum([X[i][k]*X[k][j] for k in range(n)])
     return Y
 
 if __name__ == "__main__":
